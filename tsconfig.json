@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {},
+    "baseUrl": ".",
+    "paths": {
+      "@layout/*": ["./src/layout/*"],
+      "@components/*": ["./src/components/*"],
+    },
     "types": ["react", "node", "trusted-types"],
     "target": "esNext",
     "lib": ["dom", "dom.iterable", "esnext"],
