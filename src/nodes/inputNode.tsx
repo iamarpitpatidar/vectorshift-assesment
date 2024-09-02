@@ -1,32 +1,38 @@
-// inputNode.js
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Handle, Position } from 'reactflow';
 
-export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
-  const [inputType, setInputType] = useState(data.inputType || 'Text');
+interface InputNodeProps {
+  id: string;
+  data: {
+    inputName?: string;
+    inputType?: string;
+  };
+}
 
-  const handleNameChange = (e) => {
+export const InputNode: React.FC<InputNodeProps> = ({ id, data }) => {
+  const [currName, setCurrName] = useState<string>(data?.inputName || id.replace('customInput-', 'input_'));
+  const [inputType, setInputType] = useState<string>(data.inputType || 'Text');
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrName(e.target.value);
   };
 
-  const handleTypeChange = (e) => {
+  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setInputType(e.target.value);
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div style={{ width: 200, height: 80, border: '1px solid black' }}>
       <div>
         <span>Input</span>
       </div>
       <div>
         <label>
           Name:
-          <input 
-            type="text" 
-            value={currName} 
-            onChange={handleNameChange} 
+          <input
+            type="text"
+            value={currName}
+            onChange={handleNameChange}
           />
         </label>
         <label>

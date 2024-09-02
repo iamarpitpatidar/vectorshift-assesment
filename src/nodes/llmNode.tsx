@@ -1,22 +1,25 @@
-// llmNode.js
-
+import React from 'react';
 import { Handle, Position } from 'reactflow';
 
-export const LLMNode = ({ id, data }) => {
+interface LLMNodeProps {
+  id: string;
+  data: any; // Adjust the type of data as needed based on the specific structure you use
+}
 
+export const LLMNode: React.FC<LLMNodeProps> = ({ id, data }) => {
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div style={{ width: 200, height: 80, border: '1px solid black' }}>
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-system`}
-        style={{top: `${100/3}%`}}
+        style={{ top: `${100 / 3}%` }}
       />
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-prompt`}
-        style={{top: `${200/3}%`}}
+        style={{ top: `${200 / 3}%` }}
       />
       <div>
         <span>LLM</span>
@@ -31,4 +34,4 @@ export const LLMNode = ({ id, data }) => {
       />
     </div>
   );
-}
+};

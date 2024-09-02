@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@layout/*": ["./src/layout/*"],
-      "@components/*": ["./src/components/*"],
+      "@layout/*": ["src/layout/*"],
+      "@components/*": ["src/components/*"],
     },
     "types": ["react", "node", "trusted-types"],
     "target": "esNext",
